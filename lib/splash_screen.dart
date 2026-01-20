@@ -13,8 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Navigate to home page after 2 seconds
-    Future.delayed(const Duration(seconds: 2), () {
+    // Navigate to home page after 3 seconds
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const HomePage()),
       );
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                color: AppColors.primaryColor,
+                color: AppColors.neutralColor,
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
@@ -44,10 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-              child: const Icon(
-                Icons.newspaper,
-                size: 60,
-                color: Colors.white,
+              child: Image.asset(
+                'assets/images/splash.png',
+                width: 60,
+                height: 60,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(height: 30),
@@ -57,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF2E7D32),
+                color: AppColors.primaryColor,
                 letterSpacing: 0.5,
               ),
             ),
@@ -78,13 +79,6 @@ class _SplashScreenState extends State<SplashScreen> {
               strokeWidth: 2,
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Powered by Claude AI',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
           ],
         ),
       ),
